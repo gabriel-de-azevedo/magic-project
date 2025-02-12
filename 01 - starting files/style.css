@@ -1,7 +1,7 @@
 /* Custom properties */
 
 :root {
-  --spacer: 1rem;
+  --spacer: 2rem;
 
   --clr-neutral-900: #171717;
   --clr-neutral-700: #333;
@@ -33,9 +33,50 @@ p {
   margin: 0;
 }
 
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 /* Utility classes */
-.flow-content > * + * {
+.small-spacing > * + * {
   margin-top: 1.25rem;
+}
+
+.large-spacing > * + * {
+  margin-top: 3rem;
+}
+
+.container {
+  padding: 0 var(--spacer);
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacer);
+}
+
+.bg-dark {
+  color: var(--clr-neutral-100);
+  background: var(--clr-neutral-900);
+}
+
+.text-accent {
+  color: var(--clr-accent-400);
+}
+
+.shadow {
+  box-shadow: var(--box-shadow);
 }
 
 /* general styling */
@@ -56,6 +97,14 @@ h1 span {
   font-weight: 700;
 }
 
+/* layout */
+
+section {
+  padding: 4rem 0;
+}
+
+/* components */
+
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -67,4 +116,40 @@ h1 span {
   padding: 0.75em 1.5em;
   background-color: var(--clr-accent-400);
   color: var(--clr-neutral-900);
+}
+
+.cta {
+  background-image: url(assets/cta-bg.jpg);
+  background-size: cover;
+  text-align: center;
+}
+
+.cta p {
+  max-width: 30em;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75em;
+}
+
+.join-now li::before {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: var(--clr-accent-400);
+  position: absolute;
+  z-index: -1;
+  transform: translate(-0.5rem, -0.5rem);
+}
+
+/* media queries */
+
+@media (min-width: 40rem) {
+  .split {
+    flex-direction: row;
+  }
+
+  section {
+    padding: 8rem 0;
+  }
 }
